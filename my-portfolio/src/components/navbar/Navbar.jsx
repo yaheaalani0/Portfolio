@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './navbar.css';
 
-function Navbar() {
+function Navbar({ darkMode, toggleDarkMode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -29,16 +29,25 @@ function Navbar() {
     const section = document.getElementById(sectionId);
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
-      setIsMenuOpen(false); 
+      setIsMenuOpen(false); // Close menu after clicking
     }
   };
 
   return (
-    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+    <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${darkMode ? 'dark-mode' : ''}`}>
       <div className="navbar-container">
         <div className="navbar-logo">
           <h1>Yahea Alani</h1>
         </div>
+
+        {/* Dark mode toggle */}
+        <button 
+          className="dark-mode-toggle" 
+          onClick={toggleDarkMode}
+          aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
+        >
+          {darkMode ? '☀️' : '🌙'}
+        </button>
 
         {/* Hamburger menu for mobile */}
         <div className="menu-icon" onClick={toggleMenu}>
