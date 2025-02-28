@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Add this to your global CSS or App.css */
+main {
+  padding-top: 80px; /* Adjust based on your navbar height */
+}
 
 body {
   margin: 0;

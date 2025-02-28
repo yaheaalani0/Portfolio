@@ -1,0 +1,243 @@
+/* Complete navbar.css file */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.navbar-logo h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  margin-left: 2rem;
+}
+
+.nav-item button {
+  background: none !important; /* Force no background */
+  border: none;
+  font-size: 1rem;
+  color: #333;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-item button:hover {
+  color: #3498db;
+}
+
+.nav-item button::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #3498db;
+  transition: width 0.3s ease;
+}
+
+.nav-item button:hover::after {
+  width: 100%;
+}
+
+/* Hamburger menu */
+.menu-icon {
+  display: none;
+  cursor: pointer;
+}
+
+.hamburger {
+  width: 30px;
+  height: 20px;
+  position: relative;
+}
+
+.hamburger span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: #333;
+  border-radius: 3px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.hamburger span:nth-child(1) {
+  top: 0px;
+}
+
+.hamburger span:nth-child(2) {
+  top: 8px;
+}
+
+.hamburger span:nth-child(3) {
+  top: 16px;
+}
+
+.hamburger.open span:nth-child(1) {
+  top: 8px;
+  transform: rotate(135deg);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+.hamburger.open span:nth-child(3) {
+  top: 8px;
+  transform: rotate(-135deg);
+}
+
+/* Dark mode toggle */
+.dark-mode-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-right: 1rem;
+  padding: 0.25rem;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .dark-mode-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Dark mode styles for navbar */
+.navbar.dark-mode {
+  background-color: rgba(15, 23, 42, 0.95);
+  color: white;
+}
+
+.navbar.dark-mode .navbar-logo h1 {
+  color: white;
+}
+
+.navbar.dark-mode .nav-item button {
+  color: white;
+  background: none !important;
+}
+
+.navbar.dark-mode .hamburger span {
+  background: white;
+}
+
+.navbar.dark-mode.scrolled {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+  .menu-icon {
+    display: block;
+    z-index: 1001;
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 70px;
+    left: -100%;
+    opacity: 0;
+    transition: all 0.5s ease;
+    background-color: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 1rem 0;
+  }
+
+  .nav-menu.active {
+    left: 0;
+    opacity: 1;
+    z-index: 1;
+  }
+
+  .nav-item {
+    margin: 0;
+    padding: 0.5rem 2rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-menu .nav-item button {
+    background: none !important;
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem 0;
+  }
+
+  .navbar.scrolled .nav-menu {
+    top: 60px;
+  }
+  
+  /* Mobile menu in dark mode */
+  .navbar.dark-mode .nav-menu {
+    background-color: rgba(15, 23, 42, 0.98);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .navbar.dark-mode .nav-menu .nav-item {
+    color: white;
+  }
+
+  .navbar.dark-mode .nav-menu .nav-item button {
+    color: white !important;
+    background: none !important;
+  }
+
+  /* Mobile menu item hover effect in dark mode */
+  .navbar.dark-mode .nav-menu .nav-item button:hover {
+    color: #38bdf8 !important;
+  }
+
+  /* Mobile menu item hover underline in dark mode */
+  .navbar.dark-mode .nav-menu .nav-item button::after {
+    background-color: #38bdf8;
+  }
+}

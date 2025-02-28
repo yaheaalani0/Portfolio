@@ -1,0 +1,232 @@
+/* Add this to your App.css or create a new file called background.css */
+
+/* Main background styling */
+.homepage-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+  }
+
+  /* Light mode styles */
+.homepage-background.light-mode {
+    background-color: #f0f4f8;
+  }
+  
+  .light-mode .background-gradient {
+    background: linear-gradient(135deg, rgba(66, 153, 225, 0.15) 0%, rgba(99, 179, 237, 0.15) 100%);
+  }
+  
+  .light-mode .code-decoration {
+    color: rgba(30, 64, 175, 0.1);
+  }
+  
+  /* Dark mode styles */
+  .homepage-background.dark-mode {
+    background-color: #0f172a;
+  }
+  
+  .dark-mode .background-gradient {
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(14, 165, 233, 0.1) 100%);
+  }
+  
+  .dark-mode .code-decoration {
+    color: rgba(96, 165, 250, 0.15);
+  }
+  
+  /* Gradient overlay */
+  .background-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(66, 153, 225, 0.15) 0%, rgba(99, 179, 237, 0.15) 100%);
+  }
+  
+  /* Animated shapes */
+  .background-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .shape {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2563eb, #38bdf8);
+    opacity: 0.2; /* Increased opacity for stronger colors */
+    animation: float 20s infinite ease-in-out;
+  }
+  
+  .shape:nth-child(1) {
+    width: 300px;
+    height: 300px;
+    top: -100px;
+    right: -100px;
+    animation-delay: 0s;
+    background: linear-gradient(135deg, #3b82f6, #06b6d4); /* Blue to cyan */
+  }
+  
+  .shape:nth-child(2) {
+    width: 200px;
+    height: 200px;
+    bottom: -50px;
+    left: -50px;
+    animation-delay: -5s;
+    background: linear-gradient(135deg, #8b5cf6, #3b82f6); /* Purple to blue */
+  }
+  
+  .shape:nth-child(3) {
+    width: 150px;
+    height: 150px;
+    bottom: 30%;
+    right: 10%;
+    animation-delay: -10s;
+    background: linear-gradient(135deg, #0ea5e9, #22d3ee); /* Sky blue to cyan */
+  }
+  
+  .shape:nth-child(4) {
+    width: 100px;
+    height: 100px;
+    top: 20%;
+    left: 10%;
+    animation-delay: -15s;
+    background: linear-gradient(135deg, #6366f1, #a855f7); /* Indigo to purple */
+  }
+  
+  /* Code snippet decoration */
+  .code-decoration {
+    position: absolute;
+    font-family: 'Courier New', monospace;
+    color: rgba(30, 64, 175, 0.1); /* Stronger blue color for code */
+    font-size: 14px;
+    white-space: pre;
+    pointer-events: none;
+  }
+  
+  .code-decoration:nth-child(1) {
+    top: 15%;
+    left: 5%;
+    transform: rotate(-5deg);
+  }
+  
+  .code-decoration:nth-child(2) {
+    bottom: 20%;
+    right: 5%;
+    transform: rotate(5deg);
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-20px) rotate(5deg);
+    }
+    50% {
+      transform: translateY(0) rotate(0deg);
+    }
+    75% {
+      transform: translateY(20px) rotate(-5deg);
+    }
+  }
+  
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark) {
+    .homepage-background {
+      background-color: #0f172a; /* Darker blue background for dark mode */
+    }
+    
+    .background-gradient {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(14, 165, 233, 0.1) 100%);
+    }
+    
+    .shape:nth-child(1) {
+      background: linear-gradient(135deg, #4f46e5, #0ea5e9); /* Indigo to sky blue */
+    }
+    
+    .shape:nth-child(2) {
+      background: linear-gradient(135deg, #a855f7, #4f46e5); /* Purple to indigo */
+    }
+    
+    .shape:nth-child(3) {
+      background: linear-gradient(135deg, #0ea5e9, #06b6d4); /* Sky blue to cyan */
+    }
+    
+    .shape:nth-child(4) {
+      background: linear-gradient(135deg, #8b5cf6, #ec4899); /* Purple to pink */
+    }
+    
+    .code-decoration {
+      color: rgba(96, 165, 250, 0.15); /* Brighter blue for code in dark mode */
+    }
+  }
+
+  /* Add this to your App.css */
+
+/* Light mode (default) */
+.App {
+    color: #333; /* Dark text for light mode */
+    transition: color 0.3s ease;
+  }
+  
+  /* Dark mode text colors */
+  .App.dark-mode {
+    color: #fff; /* White text for dark mode */
+  }
+  
+  /* Ensure headings also change color */
+  .App.dark-mode h1,
+  .App.dark-mode h2,
+  .App.dark-mode h3,
+  .App.dark-mode h4,
+  .App.dark-mode h5,
+  .App.dark-mode h6,
+  .App.dark-mode p,
+  .App.dark-mode span,
+  .App.dark-mode li {
+    color: #fff;
+  }
+  
+  /* For any elements that might need specific color overrides */
+  .App.dark-mode .special-text {
+    color: #e2e8f0; /* Light gray for special text in dark mode */
+  }
+  
+  /* Adjust link colors for dark mode */
+  .App.dark-mode a {
+    color: #38bdf8; /* Light blue for links in dark mode */
+  }
+  
+  /* Card or container backgrounds in dark mode */
+  .App.dark-mode .card,
+  .App.dark-mode .container {
+    background-color: #1e293b; /* Dark blue-gray for containers */
+    border-color: #334155; /* Slightly lighter border */
+  }
+  
+  /* Ensure form elements are visible in dark mode */
+  .App.dark-mode input,
+  .App.dark-mode textarea,
+  .App.dark-mode select {
+    background-color: #334155;
+    color: #fff;
+    border-color: #475569;
+  }
+  
+  /* Adjust button styles for dark mode */
+  .App.dark-mode button:not(.dark-mode-toggle) {
+    background-color: #3b82f6;
+    color: white;
+  }
+  
+  .App.dark-mode button:not(.dark-mode-toggle):hover {
+    background-color: #2563eb;
+  }
