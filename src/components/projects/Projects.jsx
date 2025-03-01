@@ -1,8 +1,13 @@
 import React from 'react'
 import '../projects/projects.css'
 
+/**
+ * Projects Component
+ * Displays a grid of project cards with hover effects and links
+ * @returns {JSX.Element} Projects section with interactive project cards
+ */
 function Projects() {
-  // Add your projects data here
+  // Project data array - each object represents a project card
   const projects = [
     {
       id: 1,
@@ -17,8 +22,8 @@ function Projects() {
       description: "Description of project 2",
       image: "/path-to-image2.jpg",
       url: "https://project2-url.com"
-    },
-    // Add more projects as needed
+    }
+    // Add more projects here as needed
   ];
 
   return (
