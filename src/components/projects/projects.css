@@ -1,0 +1,105 @@
+/* Project Section Container */
+.projects-section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Section Title Styling */
+.projects-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Projects Grid Layout */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+/* Individual Project Card Styling */
+.project-card {
+  background: var(--color-bg-variant);
+  border-radius: 1rem;
+  padding: 1.2rem;
+  text-decoration: none;
+  color: var(--color-white);
+  transition: all 0.3s ease-in-out;
+  border: 1px solid transparent;
+}
+
+/* Project Card Hover Effects */
+.project-card:hover {
+  transform: scale(1.03);
+  border-color: var(--color-primary);
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Project Image Container */
+.project-image {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+/* Project Image Styling */
+.project-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Image Hover Effect */
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+
+/* Project Content Text Styling */
+.project-content h3 {
+  margin-bottom: 0.5rem;
+}
+
+.project-content p {
+  font-size: 0.9rem;
+  color: var(--color-light);
+}
+
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 600px) {
+  .projects-grid {
+    grid-template-columns: 1fr; /* Stack cards vertically on small screens */
+  }
+  
+  .projects-section {
+    padding: 2rem 1rem; /* Reduce padding on small screens */
+  }
+}
+
+.soon-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  cursor: default;
+  padding: 2rem;
+}
+
+.soon-card h3 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.soon-card p {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+.soon-card:hover {
+  transform: none;
+  box-shadow: none;
+}
