@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { HashRouter } from 'react-router-dom';
 import { 
   AboutMe, 
   Contact, 
@@ -31,23 +32,25 @@ function App() {
   };
 
   return (
-    <div className={`App ${darkMode ? 'dark-mode' : 'light-mode'}`}>
-      {showSplash ? (
-        <SplashScreen onComplete={handleSplashComplete} />
-      ) : (
-        <>
-          <HomeBackground darkMode={darkMode} />
-          <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-          <main className="content-wrapper">
-            <AboutMe />
-            <Skills />
-            <Education />
-            <Projects />
-            <Contact />
-          </main>
-        </>
-      )}
-    </div>
+    <HashRouter>
+      <div className={`App ${darkMode ? 'dark-mode' : 'light-mode'}`}>
+        {showSplash ? (
+          <SplashScreen onComplete={handleSplashComplete} />
+        ) : (
+          <>
+            <HomeBackground darkMode={darkMode} />
+            <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+            <main className="content-wrapper">
+              <AboutMe />
+              <Skills />
+              <Education />
+              <Projects />
+              <Contact />
+            </main>
+          </>
+        )}
+      </div>
+    </HashRouter>
   );
 }
 

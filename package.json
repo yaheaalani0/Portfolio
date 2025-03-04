@@ -1,7 +1,8 @@
 {
-  "name": "my-portfolio",
+  "name": "portfolio",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://yaheaalani0.github.io/Portfolio",
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@emotion/react": "^11.14.0",
@@ -15,6 +16,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.5.0",
+    "react-router-dom": "^7.2.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
@@ -44,7 +46,6 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://yaheaalani0.github.io/portfolio/",
   "devDependencies": {
     "gh-pages": "^6.3.0"
   }
