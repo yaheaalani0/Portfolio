@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import './contact.css';
 
 const Contact = () => {
@@ -8,6 +9,7 @@ const Contact = () => {
     email: '',
     message: ''
   });
+  const [status, setStatus] = useState(''); // For showing success/error messages
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,8 +26,28 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your form submission logic here
-    console.log('Form submitted:', formData);
+    
+    // Replace these with your EmailJS credentials
+    emailjs.send(
+      'service_x5k65um', // Create from EmailJS dashboard
+      'template_uqgy2wo', // Create from EmailJS dashboard
+      {
+        from_name: formData.name,
+        reply_to: formData.email,
+        message: formData.message,
+        to_email: 'yahea.dev@gmail.com', // Your email address
+      },
+      'PehluIY4UtYqJtI0E' // Get from EmailJS dashboard
+    )
+    .then((response) => {
+      setStatus('Message sent successfully!');
+      setFormData({ name: '', email: '', message: '' }); // Clear form
+      setTimeout(() => setStatus(''), 5000); // Clear message after 5s
+    })
+    .catch((err) => {
+      setStatus('Failed to send message. Please try again.');
+      console.error('Failed to send email:', err);
+    });
   };
 
   const handleChange = (e) => {
@@ -90,6 +112,11 @@ const Contact = () => {
             ></textarea>
           </div>
           <button type="submit">Send Message</button>
+          {status && (
+            <div className={`status-message ${status.includes('Failed') ? 'error' : 'success'}`}>
+              {status}
+            </div>
+          )}
         </form>
       </div>
     </section>
