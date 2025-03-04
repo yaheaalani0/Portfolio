@@ -26,7 +26,7 @@ To run this project locally:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/Portfolio.git
+git clone https://github.com/yaheaalani0/Portfolio
 
 # Navigate to project directory
 cd Portfolio/my-portfolio
@@ -68,10 +68,6 @@ The portfolio is fully responsive and has been tested on:
 - [ ] Project filtering
 - [ ] Animations
 - [ ] Language switching
-
-## 📝 License
-
-This project is open source and available under the [MIT License](LICENSE).
 
 ## 📧 Contact
 
