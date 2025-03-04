@@ -69,10 +69,6 @@ The portfolio is fully responsive and has been tested on:
 - [ ] Animations
 - [ ] Language switching
 
-## 📝 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
 ## 📧 Contact
 
 Email - Yaheaalani0@gmail.com
