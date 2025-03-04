@@ -18,7 +18,6 @@ A modern, responsive portfolio website built with React.js to showcase my web de
 - CSS3
 - JavaScript
 - React Icons
-- Tailwind CSS
 
 ## 🏃‍♂️ Getting Started
 
