@@ -4,12 +4,14 @@ import './contact.css';
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     message: ''
   });
   const [status, setStatus] = useState(''); // For showing success/error messages
+  const [isSuccess, setIsSuccess] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,30 +26,35 @@ const Contact = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    // Replace these with your EmailJS credentials
-    emailjs.send(
-      'service_x5k65um', // Create from EmailJS dashboard
-      'template_uqgy2wo', // Create from EmailJS dashboard
-      {
-        from_name: formData.name,
-        reply_to: formData.email,
-        message: formData.message,
-        to_email: 'yahea.dev@gmail.com', // Your email address
-      },
-      'PehluIY4UtYqJtI0E' // Get from EmailJS dashboard
-    )
-    .then((response) => {
+    setIsCollapsed(true);
+
+    try {
+      await emailjs.send(
+        'service_x5k65um',
+        'template_uqgy2wo',
+        {
+          from_name: formData.name,
+          reply_to: formData.email,
+          message: formData.message,
+          to_email: 'yahea.dev@gmail.com',
+        },
+        'PehluIY4UtYqJtI0E'
+      );
+      
       setStatus('Message sent successfully!');
-      setFormData({ name: '', email: '', message: '' }); // Clear form
-      setTimeout(() => setStatus(''), 5000); // Clear message after 5s
-    })
-    .catch((err) => {
+      setIsSuccess(true); // Show checkmark
+      setTimeout(() => {
+        setFormData({ name: '', email: '', message: '' });
+        setIsCollapsed(false);
+        setIsSuccess(false);
+      }, 3000); // Increased timeout to show loading animation
+    } catch (err) {
       setStatus('Failed to send message. Please try again.');
+      setIsCollapsed(false);
       console.error('Failed to send email:', err);
-    });
+    }
   };
 
   const handleChange = (e) => {
@@ -111,7 +118,17 @@ const Contact = () => {
               required
             ></textarea>
           </div>
-          <button type="submit">Send Message</button>
+          <button 
+            type="submit" 
+            className={`submit-button ${isCollapsed ? 'collapsed' : ''} ${isSuccess ? 'success' : ''}`}
+            disabled={isCollapsed}
+          >
+            {isCollapsed ? (
+              isSuccess ? '✓' : <div className="loading-spinner"></div>
+            ) : (
+              'Connect'
+            )}
+          </button>
           {status && (
             <div className={`status-message ${status.includes('Failed') ? 'error' : 'success'}`}>
               {status}

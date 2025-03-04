@@ -72,29 +72,70 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* Form container fix */
 .contact-form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  width: 100%;
+  border-radius: 12px;
+  overflow: visible; /* Changed from hidden to visible */
 }
 
 /* Modern form styling with animations */
+/* Form group container fix */
 .form-group {
   position: relative;
-  overflow: hidden;
+  width: 100%;
+  border-radius: 12px;
+  overflow: visible; /* Changed from hidden to visible */
 }
 
-/* Form input text color */
+/* Form input styling update */
 .form-group input,
 .form-group textarea {
   width: 100%;
   padding: 1.2rem;
   border: 2px solid rgba(52, 152, 219, 0.2);
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.05);
-  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  color: #333;
   font-size: 1rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
+}
+
+/* Light mode specific styles */
+.form-group input,
+.form-group textarea {
+  color: #333;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(51, 51, 51, 0.6);
+}
+
+/* Dark mode specific styles */
+.dark-mode .form-group input,
+.dark-mode .form-group textarea {
+  color: white;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode .form-group input::placeholder,
+.dark-mode .form-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Focus states update */
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .form-group textarea {
@@ -102,26 +143,7 @@
   resize: vertical;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: #3498db;
-  box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.1);
-  transform: translateY(-2px);
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-  color: rgba(255, 255, 255, 0.6);
-  transition: all 0.3s ease;
-}
-
-.form-group input:focus::placeholder,
-.form-group textarea:focus::placeholder {
-  opacity: 0;
-  transform: translateX(10px);
-}
-
+/* Update submit button container and alignment */
 button[type="submit"] {
   padding: 1.2rem 2.5rem;
   background: linear-gradient(120deg, #3498db, #2980b9);
@@ -134,6 +156,17 @@ button[type="submit"] {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  margin: 0 auto; /* Center the button */
+  display: block; /* Make button block-level for margin auto to work */
+  min-width: 200px; /* Set minimum width for better appearance */
+  width: 200px;
+}
+
+/* Add new collapsed state */
+button[type="submit"].collapsed {
+  animation: buttonCollapse 0.5s forwards;
+  padding: 1.2rem;
+  background: #2ed573;
 }
 
 button[type="submit"]:hover {
@@ -213,4 +246,118 @@ button[type="submit"]:hover::after {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* Submit button animation states */
+@keyframes buttonCollapse {
+  0% {
+    width: 200px;
+    border-radius: 12px;
+  }
+  50% {
+    width: 50px;
+    border-radius: 25px;
+  }
+  100% {
+    width: 50px;
+    border-radius: 25px;
+  }
+}
+
+@keyframes buttonSuccess {
+  0% {
+    content: '';
+  }
+  100% {
+    content: '✓';
+  }
+}
+
+/* Submit button and loading animation styles */
+.submit-button {
+  padding: 1.2rem 2.5rem;
+  background: linear-gradient(120deg, #3498db, #2980b9);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  display: block;
+  width: 200px;
+}
+
+.submit-button.collapsed {
+  width: 50px;
+  border-radius: 25px;
+  padding: 1.2rem;
+  animation: buttonCollapse 0.3s forwards;
+  background: linear-gradient(120deg, #3498db, #2980b9); /* Keep original color while loading */
+}
+
+.loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes buttonCollapse {
+  from {
+    width: 200px;
+    border-radius: 12px;
+  }
+  to {
+    width: 50px;
+    border-radius: 25px;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.submit-button:disabled {
+  cursor: not-allowed;
+}
+
+.submit-button.success {
+  background: #2ed573 !important;
+  font-size: 1.5rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submit-button.success:disabled {
+  opacity: 1;
+  cursor: default;
+}
+
+@keyframes checkmarkAppear {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.submit-button.success:disabled {
+  animation: checkmarkAppear 0.3s ease-out forwards;
 }
