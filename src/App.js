@@ -3,7 +3,6 @@ import {
   AboutMe, 
   Contact, 
   Education, 
-  Experience, 
   Navbar, 
   Projects, 
   Skills 
@@ -42,7 +41,6 @@ function App() {
           <main className="content-wrapper">
             <AboutMe />
             <Skills />
-            <Experience />
             <Education />
             <Projects />
             <Contact />

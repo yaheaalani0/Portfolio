@@ -88,9 +88,6 @@ function Navbar({ darkMode, toggleDarkMode }) {
             <button onClick={() => scrollToSection('skills')}>Skills</button>
           </li>
           <li className="nav-item">
-            <button onClick={() => scrollToSection('experience')}>Experience</button>
-          </li>
-          <li className="nav-item">
             <button onClick={() => scrollToSection('education')}>Education</button>
           </li>
           <li className="nav-item">
