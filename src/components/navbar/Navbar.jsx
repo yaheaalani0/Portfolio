@@ -41,10 +41,17 @@ function Navbar({ darkMode, toggleDarkMode }) {
    * @param {string} sectionId - ID of the target section
    */
   const scrollToSection = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-      setIsMenuOpen(false); // Close menu after clicking
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offset = 80; // Adjust this value to match your navbar height
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+      setIsMenuOpen(false); // Close mobile menu after clicking
     }
   };
 
@@ -78,19 +85,16 @@ function Navbar({ darkMode, toggleDarkMode }) {
         <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
           {/* Navigation items with smooth scroll functionality */}
           <li className="nav-item">
-            <button onClick={() => scrollToSection('about')}>About</button>
-          </li>
-          <li className="nav-item">
             <button onClick={() => scrollToSection('skills')}>Skills</button>
           </li>
           <li className="nav-item">
-            <button onClick={() => scrollToSection('projects')}>Projects</button>
+            <button onClick={() => scrollToSection('experience')}>Experience</button>
           </li>
           <li className="nav-item">
             <button onClick={() => scrollToSection('education')}>Education</button>
           </li>
           <li className="nav-item">
-            <button onClick={() => scrollToSection('experience')}>Experience</button>
+            <button onClick={() => scrollToSection('projects')}>Projects</button>
           </li>
           <li className="nav-item">
             <button onClick={() => scrollToSection('contact')}>Contact</button>

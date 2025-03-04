@@ -1,10 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 /* Add this to your global CSS or App.css */
 main {
   padding-top: 80px; /* Adjust based on your navbar height */
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Adjust this value to match your navbar height */
 }
 
 body {

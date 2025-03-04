@@ -1,0 +1,117 @@
+/* Education section container */
+#education {
+  padding: 6rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Section title - matching other sections */
+#education h2 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  background: linear-gradient(120deg, #3498db, #2980b9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Education cards container */
+#education > div {
+  display: grid;
+  gap: 2rem;
+}
+
+/* Individual education card */
+.education-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.education-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Degree title */
+#education h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-primary, #3498db);
+}
+
+/* School and location */
+#education p:first-of-type {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+/* Period */
+#education p:nth-of-type(2) {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  padding: 0.25rem 1rem;
+  background: rgba(52, 152, 219, 0.1);
+  border-radius: 20px;
+}
+
+/* Details list */
+#education ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#education li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+#education li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--color-primary, #3498db);
+}
+
+/* Dark mode adjustments */
+.dark-mode .education-card {
+  background: rgba(15, 23, 42, 0.3);
+}
+
+.dark-mode #education p:first-of-type {
+  color: #e2e8f0;
+}
+
+.dark-mode #education p:nth-of-type(2) {
+  color: #cbd5e1;
+  background: rgba(52, 152, 219, 0.15);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  #education {
+    padding: 4rem 1rem;
+  }
+
+  #education h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .education-card {
+    padding: 1.5rem;
+  }
+
+  #education h3 {
+    font-size: 1.3rem;
+  }
+}
