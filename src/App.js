@@ -31,6 +31,14 @@ function App() {
     setShowSplash(false);
   };
 
+  const sections = [
+    { id: 'about-me', component: <AboutMe /> },
+    { id: 'skills', component: <Skills /> },
+    { id: 'education', component: <Education /> },
+    { id: 'projects', component: <Projects /> },
+    { id: 'contact', component: <Contact /> }
+  ];
+
   return (
     <HashRouter>
       <div className={`App ${darkMode ? 'dark-mode' : 'light-mode'}`}>
@@ -41,11 +49,11 @@ function App() {
             <HomeBackground darkMode={darkMode} />
             <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
             <main className="content-wrapper">
-              <AboutMe />
-              <Skills />
-              <Education />
-              <Projects />
-              <Contact />
+              {sections.map(section => (
+                <section key={section.id} className="section-container">
+                  {section.component}
+                </section>
+              ))}
             </main>
           </>
         )}
