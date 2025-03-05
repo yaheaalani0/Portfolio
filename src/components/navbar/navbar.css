@@ -49,6 +49,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  align-items: center; 
 }
 
 /* Individual navigation items */
@@ -58,7 +59,7 @@
 
 /* Navigation buttons with hover effects */
 .nav-item button {
-  background: none !important; /* Force no background */
+  background: none !important; 
   border: none;
   font-size: 1rem;
   color: #333;
@@ -93,6 +94,11 @@
 .menu-icon {
   display: none;
   cursor: pointer;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 1rem;
 }
 
 .hamburger {
@@ -107,12 +113,17 @@
   position: absolute;
   height: 3px;
   width: 100%;
-  background: #333;
+  background: #333; /* Dark color for light mode */
   border-radius: 3px;
   opacity: 1;
   left: 0;
   transform: rotate(0deg);
   transition: .25s ease-in-out;
+}
+
+/* Dark mode specific styles */
+.dark-mode .hamburger span {
+  background: white; /* White color for dark mode */
 }
 
 .hamburger span:nth-child(1) {
@@ -148,10 +159,11 @@
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
-  margin-right: 1rem;
+  margin-left: 1rem; 
   padding: 0.25rem;
   border-radius: 50%;
   transition: background-color 0.3s ease;
+  order: 2; 
 }
 
 .dark-mode-toggle:hover {
@@ -188,8 +200,8 @@
 /* Mobile responsive adjustments */
 @media screen and (max-width: 768px) {
   .menu-icon {
-    display: block;
-    z-index: 1001;
+    display: flex;
+    margin-left: auto;
   }
 
   .nav-menu {
@@ -258,5 +270,41 @@
   /* Mobile menu item hover underline in dark mode */
   .navbar.dark-mode .nav-menu .nav-item button::after {
     background-color: #38bdf8;
+  }
+
+  .navbar-container {
+    padding: 0 1rem;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #333; /* Ensure dark color in mobile light mode */
+    margin: 2px 0;
+    transition: all 0.3s ease;
+    border-radius: 3px;
+  }
+
+  .navbar.dark-mode .hamburger span {
+    background-color: white; /* Ensure white color in mobile dark mode */
+  }
+
+  .dark-mode-toggle {
+    margin-right: 1rem; 
+    order: 0; 
   }
 }

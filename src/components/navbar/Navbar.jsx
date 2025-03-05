@@ -4,7 +4,7 @@ import './navbar.css';
 /**
  * Navbar Component
  * Responsive navigation bar with dark mode toggle and smooth scrolling
- * @param {boolean} darkMode - Current theme state
+ * @param {boolean} darkMode 
  * @param {function} toggleDarkMode - Function to toggle dark/light mode
  */
 function Navbar({ darkMode, toggleDarkMode }) {
@@ -38,12 +38,12 @@ function Navbar({ darkMode, toggleDarkMode }) {
 
   /**
    * Smooth scroll to target section and close mobile menu
-   * @param {string} sectionId - ID of the target section
+   * @param {string} sectionId 
    */
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const offset = 80; // Adjust this value to match your navbar height
+      const offset = 80; 
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
 
@@ -51,7 +51,7 @@ function Navbar({ darkMode, toggleDarkMode }) {
         top: offsetPosition,
         behavior: 'smooth'
       });
-      setIsMenuOpen(false); // Close mobile menu after clicking
+      setIsMenuOpen(false); 
     }
   };
 

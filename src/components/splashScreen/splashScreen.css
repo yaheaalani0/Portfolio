@@ -4,7 +4,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #0a192f; /* Dark blue background */
+    background-color: #0a192f; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -52,13 +52,13 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    z-index: 2; /* Ensure content is above the background logo */
+    z-index: 2; 
   }
   
   .splash-title {
     font-size: 4rem;
     font-weight: 700;
-    margin-bottom: 1.5rem; /* Increased spacing between title and subtitle */
+    margin-bottom: 1.5rem; 
     display: inline-block;
   }
   
@@ -80,7 +80,7 @@
   .loading-progress {
     height: 100%;
     width: 0;
-    background-color: #64ffda; /* Teal accent color */
+    background-color: #64ffda; 
     animation: loading 4.5s ease-in-out forwards;
   }
   
@@ -99,8 +99,7 @@
     opacity: 0;
   }
   
-  /* Remove the fadeInUp animations since we're using typewriter effect */
-  /* Instead, we'll start with the elements visible */
+
   .splash-title, .splash-subtitle {
     opacity: 1;
     transform: translateY(0);

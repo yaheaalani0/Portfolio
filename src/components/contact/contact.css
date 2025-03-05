@@ -79,7 +79,7 @@
   gap: 1.5rem;
   width: 100%;
   border-radius: 12px;
-  overflow: visible; /* Changed from hidden to visible */
+  overflow: visible; 
 }
 
 /* Modern form styling with animations */
@@ -88,7 +88,7 @@
   position: relative;
   width: 100%;
   border-radius: 12px;
-  overflow: visible; /* Changed from hidden to visible */
+  overflow: visible; 
 }
 
 /* Form input styling update */
@@ -156,9 +156,9 @@ button[type="submit"] {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
-  margin: 0 auto; /* Center the button */
-  display: block; /* Make button block-level for margin auto to work */
-  min-width: 200px; /* Set minimum width for better appearance */
+  margin: 0 auto;
+  display: block; 
+  min-width: 200px; 
   width: 200px;
 }
 
@@ -296,7 +296,7 @@ button[type="submit"]:hover::after {
   border-radius: 25px;
   padding: 1.2rem;
   animation: buttonCollapse 0.3s forwards;
-  background: linear-gradient(120deg, #3498db, #2980b9); /* Keep original color while loading */
+  background: linear-gradient(120deg, #3498db, #2980b9); 
 }
 
 .loading-spinner {
