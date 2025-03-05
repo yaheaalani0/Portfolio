@@ -71,7 +71,7 @@ const Contact = () => {
       <div className="contact-container">
         <div className="social-links">
           <a 
-            href="https://github.com/yaheaalani0" 
+            href="https://www.linkedin.com/in/yahea-alani-18b69b225/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="social-link linkedin"
@@ -79,7 +79,7 @@ const Contact = () => {
             <i className="fab fa-linkedin-in"></i>
           </a>
           <a 
-            href="https://github.com/yaheaalani0?tab=repositories" 
+            href="https://github.com/yaheaalani0" 
             target="_blank" 
             rel="noopener noreferrer"
             className="social-link github"
