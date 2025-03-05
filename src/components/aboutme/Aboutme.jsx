@@ -50,7 +50,7 @@ const AboutMe = () => {
         <h2 className="about-title">
           <TypeWriter 
             text={headerText}
-            speed={30}
+            speed={15}
             onComplete={handleHeaderTypingComplete}
           />
         </h2>
@@ -58,7 +58,7 @@ const AboutMe = () => {
           {startBioAnimation && (
             <TypeWriter 
               text={bioText}
-              speed={20}
+              speed={10}
             />
           )}
         </div>
