@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./aboutme.css";
 import myPhoto from "../../images/image5.jpeg";
-import TypeWriter from "../TypeWrite";
+import TypeWriter from "../common/TypeWriter";
 
 /**
  * AboutMe component - Displays personal information and profile image
@@ -9,12 +9,18 @@ import TypeWriter from "../TypeWrite";
  */
 const AboutMe = () => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
+  const [startBioAnimation, setStartBioAnimation] = useState(false);
+  const headerText = "Hi, I'm Yahea! A passionate software developer focused on creating interactive and responsive web applications. I love turning complex problems into simple, beautiful, and intuitive solutions.";
 
   useEffect(() => {
     setIsImageLoaded(true);
   }, []);
 
-  const bioText = `Hi! I'm a passionate Front-End Developer currently studying at Jensen 
+  const handleHeaderTypingComplete = () => {
+    setStartBioAnimation(true);
+  };
+
+  const bioText = `I'm studying at Jensen 
     Yrkeshögskola in Malmö. At 24 years old, I've been diving into the world 
     of web development with a focus on creating interactive and user-friendly 
     websites. I have a strong foundation in React, JavaScript, HTML, and CSS, 
@@ -28,7 +34,7 @@ const AboutMe = () => {
     work and reach out if you'd like to collaborate!`;
 
   return (
-    <section className="about-section">
+    <section id="about-me" className="about-section">
       <div className="profile-image-container">
         {isImageLoaded && (
           <img 
@@ -42,9 +48,20 @@ const AboutMe = () => {
 
       <div className="about-content">
         <h2 className="about-title">
-          <TypeWriter text="Hi! it's Yahea" delay={150} />
+          <TypeWriter 
+            text={headerText}
+            speed={30}
+            onComplete={handleHeaderTypingComplete}
+          />
         </h2>
-        <p>{bioText}</p>
+        <div className="bio-text">
+          {startBioAnimation && (
+            <TypeWriter 
+              text={bioText}
+              speed={20}
+            />
+          )}
+        </div>
       </div>
     </section>
   );

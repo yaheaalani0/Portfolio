@@ -86,6 +86,14 @@ const Contact = () => {
           >
             <i className="fab fa-github"></i>
           </a>
+          <a 
+            href="/assets/Yahea_Alani_CV.pdf"
+            download="Yahea_Alani_CV.pdf"
+            className="social-link cv-link"
+            title="Download CV"
+          >
+            <i className="fas fa-file-pdf"></i>
+          </a>
         </div>
 
         <form onSubmit={handleSubmit} className="contact-form">

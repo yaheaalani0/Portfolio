@@ -1,5 +1,8 @@
-/* Base styles */
+/* Section container */
 .contact-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 6rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -26,12 +29,15 @@
   -webkit-text-fill-color: transparent;
 }
 
+/* Container for social links and form */
 .contact-container {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
+  width: 100%;
   max-width: 800px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
 
 /* Social links container */
@@ -39,7 +45,8 @@
   display: flex;
   justify-content: center;
   gap: 2rem;
-  margin-bottom: 2rem;
+  width: 100%;
+  margin-bottom: 1rem;
 }
 
 /* Social link buttons */
@@ -68,21 +75,30 @@
   background: #333;
 }
 
+.social-link.cv-link {
+  background: #e74c3c;
+  transition: all 0.3s ease;
+}
+
+.social-link.cv-link:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+  background: #c0392b;
+}
+
 .social-link:hover {
   transform: translateY(-5px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Form container */
+/* Form styling */
 .contact-form {
+  width: 100%;
+  max-width: 600px;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  border-radius: 12px;
-  overflow: visible; 
+  align-items: center;
 }
 
 /* Modern form styling with animations */
@@ -98,9 +114,11 @@
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 1.2rem;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
   border: 2px solid rgba(52, 152, 219, 0.2);
-  border-radius: 12px;
   background: rgba(255, 255, 255, 0.1);
   color: #333;
   font-size: 1rem;
@@ -206,6 +224,20 @@ button[type="submit"]:hover::after {
 @media screen and (max-width: 768px) {
   .contact-section {
     padding: 3rem 1rem;
+  }
+
+  .contact-container {
+    padding: 0;
+    width: 90%;
+  }
+
+  .contact-form {
+    width: 100%;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
   }
 
   .contact-form {
