@@ -15,7 +15,7 @@ A modern, responsive portfolio website built with React.js to showcase my web de
 ## 🛠️ Built With
 
 - React.js
-- CSS3
+- CSS
 - JavaScript
 - React Icons
 
@@ -70,6 +70,6 @@ The portfolio is fully responsive and has been tested on:
 
 ## 📧 Contact
 
-Email - Yaheaalani0@gmail.com
+Email - Yahea.dev@gmail.com
 
 Project Link: https://github.com/yaheaalani0/Portfolio
