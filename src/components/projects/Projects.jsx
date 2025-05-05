@@ -9,6 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import Forum from "../../images/forum1.png";
+import FilmVisarna from "../../images/filmvisarna.png";
 
 function Projects() {
   const projects = [
@@ -21,8 +22,10 @@ function Projects() {
     },
     {
       id: 2,
-      title: "👀",
-      description: "Coming Soon!",
+      title: "Film Visarna",
+      description:
+        "Filmvisarna is a full-stack film booking application which provides an intuitive and modern user experience for browsing movies, viewing detailed information, and booking tickets with seat selection. The frontend is built with React and leverages a dark theme with global styling for a sleek, cinematic look, while the backend handles movie data, booking transactions, and user authentication.",
+      img: FilmVisarna,
     },
   ];
 
